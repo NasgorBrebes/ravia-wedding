@@ -1,0 +1,44 @@
+/* Gaya untuk Audio Player di kiri bawah */
+.audio-player {
+  position: fixed;
+  bottom: 20px; /* Jarak dari bawah */
+  left: 20px; /* Jarak dari kiri */
+  z-index: 1000; /* Memastikan tombol berada di atas konten lain */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.audio-player button {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  font-size: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.audio-player button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Media query untuk perangkat mobile */
+@media (max-width: 768px) {
+  .audio-player {
+    bottom: 15px;
+    left: 15px;
+  }
+
+  .audio-player button {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,109 @@
+/* transition.css - File untuk efek transisi antar halaman */
+
+/* Animasi fade in saat halaman baru dimuat */
+.fade-in {
+  animation: fadeInAnimation 0.5s ease forwards;
+}
+
+/* Animasi fade out saat meninggalkan halaman */
+.fade-out {
+  animation: fadeOutAnimation 0.5s ease forwards;
+}
+
+/* Definisi animasi fade in */
+@keyframes fadeInAnimation {
+  0% {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Definisi animasi fade out */
+@keyframes fadeOutAnimation {
+  0% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+  100% {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+}
+
+/* Agar transisi lebih mulus */
+body {
+  overflow-x: hidden;
+}
+
+/* Animasi alternatif (slide) */
+@keyframes slideOutLeft {
+  0% {
+      transform: translateX(0);
+      opacity: 1;
+  }
+  100% {
+      transform: translateX(-100%);
+      opacity: 0;
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+      transform: translateX(100%);
+      opacity: 0;
+  }
+  100% {
+      transform: translateX(0);
+      opacity: 1;
+  }
+}
+
+/* Kelas untuk animasi slide */
+.slide-out {
+  animation: slideOutLeft 0.8s forwards;
+}
+
+.slide-in {
+  animation: slideInRight 0.8s forwards;
+}
+
+/* Kelas untuk page wipe */
+@keyframes wipeOut {
+  0% {
+      transform: scaleX(0);
+      transform-origin: right;
+  }
+  50% {
+      transform: scaleX(1);
+      transform-origin: right;
+  }
+  50.1% {
+      transform: scaleX(1);
+      transform-origin: left;
+  }
+  100% {
+      transform: scaleX(0);
+      transform-origin: left;
+  }
+}
+
+.page-transition-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  z-index: 9999;
+  transform: scaleX(0);
+  display: none;
+}
+
+.wipe-transition .page-transition-overlay {
+  display: block;
+  animation: wipeOut 1s ease-in-out forwards;
+}

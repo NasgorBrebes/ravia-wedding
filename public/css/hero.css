@@ -1,0 +1,112 @@
+:root{
+  --pink: #f14e95;
+  --bg: linear-gradient(to right, #003C49, #0D1928);
+  --shadow: 0 2px 2px rgb(0,0,0/0.5);
+}
+
+.hero{
+  min-height: 100vh;
+  background-image: url("/img/Cover.JPG");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  filter: brightness(1.1) contrast(1.05) saturate(1.2);
+}
+
+.hero h1{
+   font-family: 'Parisienne', sans-serif !important;
+   font-size: 4rem;
+   text-shadow: black 2px 2px 2px;
+}
+
+.hero h4{
+   font-family: 'Georgia', Times, serif;
+   font-size: 1.2rem;
+}
+
+.hero p{
+    font-size: 1.3rem;
+    font-weight: 300;
+    font-family: 'Georgia', Times, serif;
+    color: white;
+}
+
+.invite-btn {
+  align-items: center;
+  gap: 8px; /* Jarak antara ikon dan teks */
+  font-family: 'Georgia', Times, serif;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: black;
+  font-weight: bold;
+  font-size: 14px;
+
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  max-width: 200px; /* Batasi panjang maksimum */
+  width: auto; /* Agar ukurannya mengikuti konten */
+}
+
+
+.invite-btn:hover {
+  background-color: var(--pink); /* Lebih terang saat hover */
+  color: white;
+}
+/* Untuk ukuran 576px - posisi teks di bawah dan gambar lebih kecil */
+@media (max-width: 768px) {
+  /* Mengatur tampilan container utama */
+  .hero-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Mengatur konten ke bawah */
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 30px; /* Jarak dari bawah layar */
+  }
+
+  /* Mengatur gambar tree (batang pohon) */
+  .hero {
+    background-image: url('img/mobile.JPG'); /* Gunakan gambar yang lebih ringan */
+    background-position: center;
+}
+  /* Mengatur posisi teks ke bawah */
+  .couple-names {
+    font-family: 'Parisienne', sans-serif;
+    font-size: 3rem; /* Ukuran font yang lebih kecil */
+    text-shadow: black 2px 2px 2px;
+    margin-top: auto; /* Dorong ke bawah */
+    padding-top: 20px;
+    text-align: center;
+  }
+
+  .invitation-text {
+    font-family: 'Georgia', Times, serif;
+    font-size: 1rem;
+    color: white;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  /* Memposisikan tombol undangan */
+  .invite-btn-container {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+
+  /* Mengatur konten di bawah */
+  .content-bottom {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Latar belakang semi-transparan agar teks lebih terbaca */
+    padding: 15px 0;
+  }
+
+}

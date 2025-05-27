@@ -1,0 +1,819 @@
+:root {
+    --pink: #f14e95;
+    --bg: linear-gradient(to right, #003c49, #0d1928);
+    --shadow: 0 2px 2px rgb(0, 0, 0/0.5);
+}
+
+body {
+    font-size: 1.2rem;
+    font-family: "Georgia", sans-serif;
+    min-height: 4000px;
+    background: var(--bg);
+    color: white;
+}
+/* Styling dasar untuk semua bagian */
+.home,
+.mempelai,
+.info,
+.maps,
+.story,
+.gallery,
+.gift,
+.rsvp {
+    opacity: 0; /* Mulai dengan tidak terlihat */
+    transition: opacity 1s ease-in-out; /* Hanya animasi opacity tanpa transform */
+}
+
+/* Kelas animasi yang akan ditambahkan melalui JavaScript */
+.animate-in {
+    opacity: 1; /* Menjadi terlihat sepenuhnya */
+}
+
+/* Opsional: Waktu animasi berbeda untuk berbagai bagian */
+.mempelai.animate-in {
+    transition-delay: 0.1s;
+}
+
+.info.animate-in {
+    transition-delay: 0.2s;
+}
+
+.maps.animate-in {
+    transition-delay: 0.1s;
+}
+
+.story.animate-in {
+    transition-delay: 0.2s;
+}
+
+.gallery.animate-in {
+    transition-delay: 0.3s;
+}
+
+.gift.animate-in {
+    transition-delay: 0.2s;
+}
+
+.rsvp.animate-in {
+    transition-delay: 0.3s;
+}
+.invite-btn {
+    align-items: center;
+    gap: 8px; /* Jarak antara ikon dan teks */
+    font-family: "Georgia", Times, serif;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+    font-weight: bold;
+    font-size: 14px;
+
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    max-width: 200px; /* Batasi panjang maksimum */
+    width: auto; /* Agar ukurannya mengikuti konten */
+}
+
+.invite-btn:hover {
+    background-color: var(--pink); /* Lebih terang saat hover */
+    color: white;
+}
+
+.mynavbar {
+    background-color: rgb(255, 255, 255, 0.3);
+    padding: 5px 10px; /* Kurangi padding navbar */
+}
+
+.mynavbar .navbar-brand,
+.mynavbar .offcanvas-title {
+    font-family: "Parisienne", sans-serif;
+    font-size: 2.2rem;
+    color: white;
+    font-weight: bold;
+}
+
+.mynavbar .nav-link {
+    font-family: "Georgia", Times, serif;
+    text-transform: uppercase;
+    font-size: 0.9rem; /* Kurangi ukuran font link */
+    padding: 5px 8px; /* Kurangi padding pada link */
+    color: white;
+}
+.mynavbar .offcanvas {
+    background-color: #f5c28d;
+    color: white;
+    font-family: "Georgia", Times, serif;
+}
+.mynavbar .nav-link:hover {
+    color: var(--pink); /* Ubah warna saat hover */
+}
+
+.home {
+    padding: 50px;
+    text-align: center;
+    background: var(--bg);
+    color: white;
+    background-image: url("img/Group\ 25.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    margin-top: 0 !important;
+    padding-top: 45px;
+    position: relative;
+    top: 0;
+}
+.home .container {
+    max-width: auto; /* Sesuaikan dengan kebutuhan */
+}
+
+.image-home img {
+    width: 50%;
+    border-radius: 15px;
+    display: block;
+    margin: 0 auto;
+}
+
+.quote {
+    margin-top: 30px;
+    font-size: 18px;
+    max-width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.quote strong {
+    display: block;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.mempelai {
+    min-height: 100vh; /* Sama seperti home */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 50px 0;
+    color: white;
+    background-image: url("img/Vector.svg");
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+
+.mempelai .container {
+    max-width: 1000px; /* Sesuaikan dengan kebutuhan */
+}
+
+.circle {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 3px solid #f5c28d;
+    margin-bottom: 20px;
+}
+.dhinda {
+    background-image: url("img/Oktavia.jpg");
+    background-position: center -4px;
+}
+.syachrul {
+    background-image: url("img/Rama.jpg");
+    background-position: center;
+}
+.name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #f5c28d;
+}
+
+.desc {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.info {
+    min-height: 100vh; /* Sama seperti home */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: auto;
+    text-align: center;
+    padding: 50px 0;
+    font-family: "Georgia", Times, serif;
+}
+.info h2,
+.story h2,
+.gallery h2 {
+    color: #f5c28d;
+    font-style: italic;
+    font-size: 30px;
+    font-family: "Georgia", Times, serif;
+}
+
+.info p {
+    font-size: 20px;
+    max-width: 900px;
+    margin: 20px auto;
+    line-height: 1.3;
+    font-style: italic;
+}
+
+.highlight {
+    color: #e5a55d;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.map {
+    min-height: 100vh; /* Sesuai tinggi viewport */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 50px 0;
+}
+
+.map .container {
+    width: 100%;
+    max-width: 900px; /* Atur ukuran maksimal */
+}
+.map h2 {
+    color: #f5c28d;
+    font-style: italic;
+    font-size: 40px;
+    font-family: "Georgia", sans-serif;
+    margin-bottom: 30px;
+}
+.map-wrapper {
+    display: flex;
+    flex-direction: column; /* Menyusun iframe dan tombol secara vertikal */
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+iframe {
+    width: 100%;
+    max-width: 900px;
+    height: 350px;
+    border: 0;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+.map-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 20px;
+    background-color: #c49a6c;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: "Georgia", sans-serif;
+    font-style: italic;
+}
+
+.map-btn:hover {
+    background-color: var(--pink);
+}
+
+.story {
+    min-height: 100vh; /* Sama seperti home */
+    padding-top: 4rem;
+    padding-bottom: 8rem;
+}
+.story span,
+.gallery span {
+    text-transform: uppercase;
+    color: white;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    font-family: "Georgia", Times, serif;
+    display: block;
+    margin-bottom: 1rem;
+}
+.story p,
+.gallery p {
+    font-size: 1rem;
+    font-weight: 300;
+    font-family: "Georgia", Times, serif;
+}
+.timeline {
+    list-style: none;
+    padding: 1.4rem 0;
+    margin-top: 1rem;
+    position: relative;
+}
+.timeline::before {
+    content: "";
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    width: 1px;
+    background-color: #f5c28d;
+    left: 50%;
+}
+.timeline li {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+.timeline li::before,
+.timeline li::after {
+    content: "";
+    display: table;
+}
+.timeline li::after {
+    clear: both;
+}
+.timeline li .timeline-image {
+    width: 150px;
+    height: 150px;
+    background-color: #f5c28d;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background-repeat: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+.timeline li .timeline-panel {
+    width: 40%;
+    float: left;
+    border: 1px solid #f5c28d;
+    padding: 2rem;
+    position: relative;
+    border-radius: 5px;
+    background-color: #f5c28d;
+}
+.timeline li .timeline-panel::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    border-top: 15px solid transparent;
+    border-left: 15px solid #f5c28d;
+    border-right: 0 solid #f5c28d;
+    border-bottom: 15px solid transparent;
+    top: 80px;
+    right: -15px;
+}
+.timeline li.timeline-inverted .timeline-panel {
+    float: right;
+}
+.timeline li.timeline-inverted .timeline-panel::before {
+    border-left-width: 0;
+    border-right-width: 15px;
+    left: -15px;
+    right: auto;
+}
+
+.komen h2 {
+    color: #f5c28d;
+    font-style: italic;
+    font-size: 40px;
+    font-family: "Georgia", Times, serif;
+    margin-top: 4rem;
+}
+.komen p {
+    font-weight: 300;
+    font-family: "Georgia", Times, serif;
+}
+
+.gift-section {
+    padding: 80px 0;
+    font-family: "Georgia", serif;
+}
+
+.section-title {
+    color: #f5c28d;
+    font-style: italic;
+    font-size: 40px;
+    font-family: "Georgia", Times, serif;
+    margin-top: 4rem;
+}
+
+.gift-card {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    margin-bottom: 30px;
+    background-color: #fff;
+}
+
+.gift-card:hover {
+    transform: translateY(-10px);
+}
+
+.gift-header {
+    background-color: #f5c28d;
+    color: #3d3d3d;
+    padding: 15px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.gift-body {
+    padding: 20px;
+    text-align: center;
+}
+
+.bank-logo {
+    max-height: 50px;
+    margin-bottom: 15px;
+}
+
+.account-number {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px dashed #f5c28d;
+    border-radius: 5px;
+    background-color: #f5c28d;
+}
+
+.copy-btn {
+    background-color: #f5c28d;
+    color: #3d3d3d;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.copy-btn:hover {
+    background-color: var(--pink);
+}
+
+.copy-success {
+    color: #28a745;
+    font-size: 0.9rem;
+    margin-top: 8px;
+    display: none;
+}
+
+.copy-failed {
+    color: #dc3545;
+    font-size: 0.9rem;
+    margin-top: 8px;
+    display: none;
+}
+
+.gift-message {
+    font-style: italic;
+    color: #f5c28d;
+    margin-top: 20px;
+}
+
+/* Hidden textarea for clipboard operations */
+.clipboard-input {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+}
+
+/* Gallery Section Styling */
+.gallery {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Gallery Headers */
+.gallery .subtitle {
+    font-size: 1.25rem;
+    color: #ffff;
+    display: block;
+    margin-bottom: 10px;
+    font-family: "Georgia", cursive;
+    font-weight: 700;
+}
+
+.gallery .title {
+    color: #f5c28d;
+    font-style: italic;
+    font-size: 40px;
+    font-family: "Georgia", Times, serif;
+}
+
+.gallery .divider {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right, #f9e0e3, #d4a7a7, #f9e0e3);
+    margin-bottom: 20px;
+}
+
+.gallery .description {
+    color: #7d7d7d;
+    font-size: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Gallery Cards */
+.gallery-card {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.gallery-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.gallery-image img {
+    transition: transform 0.8s ease;
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.gallery-card:hover .gallery-image img {
+    transform: scale(1.1);
+}
+
+/* Overlay Effect */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(213, 172, 178, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.gallery-card:hover .overlay {
+    opacity: 1;
+}
+
+.overlay-content {
+    text-align: center;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+}
+
+.gallery-card:hover .overlay-content {
+    transform: translateY(0);
+}
+
+.overlay-content i {
+    color: white;
+    font-size: 2rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.overlay-content i:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+}
+
+/* View More Button */
+.btn-view-more {
+    background-color: transparent;
+    border: 2px solid #d4a7a7;
+    color: #d4a7a7;
+    padding: 10px 30px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-view-more:hover {
+    background-color: #d4a7a7;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(212, 167, 167, 0.3);
+}
+
+/* Laptop */
+@media (max-width: 992px) {
+    html {
+        font-size: 75%; /* Ukuran font 75% dari ukuran normal */
+    }
+
+    .timeline::before {
+        left: 60px;
+    }
+    .timeline li .timeline-image {
+        left: 15px;
+        margin-left: 45px;
+        top: 16px;
+    }
+    .timeline li .timeline-panel {
+        width: calc((100% - 200px));
+        float: right;
+    }
+    .timeline li .timeline-panel::before {
+        border-left-width: 0;
+        border-right-width: 15px;
+        left: -15px;
+        right: auto;
+    }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    html {
+        font-size: 65%; /* Ukuran font 65% dari ukuran normal */
+    }
+
+    .mynavbar .nav-link {
+        text-align: center;
+        font-size: 1rem;
+    }
+    .sticky-top .hero h1 {
+        font-size: 4rem; /* Perkecil ukuran teks */
+    }
+
+    .hero h4 {
+        font-size: 1.2rem;
+    }
+
+    .circle {
+        width: 180px; /* Kurangi ukuran foto profil */
+        height: 180px;
+    }
+
+    .timeline li .timeline-image {
+        width: 140px; /* Kurangi ukuran foto profil */
+        height: 140px;
+    }
+
+    .story p {
+        font-size: 14px;
+    }
+
+    .story span {
+        font-size: 14px;
+    }
+
+    .description {
+        font-size: 30px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+    html {
+        font-size: 50%;
+    }
+
+    .home {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .image-home img {
+        width: 90%; /* Perbesar agar lebih proporsional */
+        max-width: 300px;
+    }
+
+    .quote {
+        font-size: 14px;
+        line-height: 1.6;
+        max-width: 90%;
+        padding: 10px;
+    }
+
+    .quote strong {
+        font-size: 16px;
+    }
+
+    .map iframe {
+        width: 100%;
+        height: 250px; /* Perkecil ukuran iframe di mobile */
+    }
+
+    .map h2 {
+        font-size: 30px;
+    }
+
+    .timeline li .timeline-image {
+        width: 90px; /* Kurangi ukuran foto profil */
+        height: 90px;
+    }
+    .timeline li .timeline-panel {
+        width: 65%;
+        transform: translateX(-20px);
+    }
+    .timeline li .timeline-panel::before {
+        top: 30px;
+    }
+
+    .info h2 {
+        font-size: 25px;
+        margin-bottom: 10px;
+        text-align: center;
+        width: 100%;
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+
+    .info p {
+        font-size: 14px;
+    }
+
+    .info span {
+        font-size: 14px;
+    }
+    .highlight {
+        font-size: 14px !important;
+    }
+
+    .mempelai h3 {
+        font-size: 18px;
+    }
+
+    .mempelai p {
+        font-size: 14px;
+    }
+    .syachrul {
+        background-image: url("img/Rama.jpg");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 180px !important;
+        height: 180px !important;
+        border-radius: 50% !important;
+        margin: 0 auto !important;
+        display: block !important;
+        border: 3px solid #f0c987 !important; /* Border emas */
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    .syachrul-container,
+    [class*="profile-container"],
+    [class*="mempelai-container"] {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 0 10px !important;
+        box-sizing: border-box !important;
+    }
+
+    .dhinda {
+        background-image: url("img/Oktavia.jpg");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 180px !important;
+        height: 180px !important;
+        border-radius: 50% !important;
+        margin: 0 auto !important;
+        display: block !important;
+        border: 3px solid #f0c987 !important; /* Border emas */
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+    }
+    .rounded-image,
+    [class*="foto"],
+    [class*="profile"] img,
+    .profile-image,
+    .syachrul,
+    [class*="dhinda"] {
+        margin-bottom: 25px !important; /* Jarak yang lebih besar */
+    }
+    .parent-info,
+    .address-info,
+    p:last-of-type,
+    .profile-container p:last-child,
+    .mempelai-info p:last-child {
+        margin-bottom: 35px !important; /* Jarak yang lebih besar antara alamat dan foto berikutnya */
+    }
+    .description {
+        font-size: 14px !important;
+    }
+}
