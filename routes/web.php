@@ -36,5 +36,12 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::resource('bank-accounts', WeddingBankAccountController::class);
 
     // Guests
-    Route::resource('guests', WeddingGuestController::class);
+    Route::resource('guests', App\Http\Controllers\Admin\WeddingGuestController::class);
+
+    // Additional routes for wedding guests
+    Route::get('guests/export', [App\Http\Controllers\Admin\WeddingGuestController::class, 'export'])
+        ->name('guests.export');
+
+    Route::post('guests/bulk-action', [App\Http\Controllers\Admin\WeddingGuestController::class, 'bulkAction'])
+        ->name('guests.bulk-action');
 });
